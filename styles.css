@@ -719,38 +719,29 @@ img {
 }
 
 /* ============================================
-   Video Cards
+   Card Variant: Video Reel (.card--video-reel)
    ============================================ */
-.video-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 219px;
-  gap: 4px;
-  flex-shrink: 0;
-}
-
-.video-card__thumbnail {
+.card--video-reel {
   width: 219px;
   height: 388px;
   border-radius: 12px;
   background-size: cover;
   background-position: center;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   overflow: hidden;
+  flex-shrink: 0;
   transition: transform 0.3s ease;
 }
 
-/* Video element — always visible and playing */
-.video-card__video {
+.card--video-reel:hover {
+  transform: scale(1.02);
+}
+
+.card--video-reel .card__video-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
   border-radius: 12px;
   opacity: 1;
@@ -758,38 +749,62 @@ img {
   pointer-events: none;
 }
 
-.video-card:hover .video-card__thumbnail {
-  transform: scale(1.02);
-}
-
-.video-card__overlay {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 13%, rgba(0, 0, 0, 0.8) 100%);
-  padding: 12px 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.card--video-reel .card__overlay {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
 }
 
-.video-card__brand {
+.card--video-reel .card__overlay--top {
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+.card--video-reel .card__overlay--bottom {
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  padding: 12px;
+  gap: 4px;
+}
+
+.card--video-reel .card__brand-row {
+  gap: 8px;
+}
+
+.card--video-reel .card__brand {
   font: var(--font-card-brand);
   color: rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
   letter-spacing: 0.2em;
 }
 
-.video-card__title {
+.card--video-reel .card__title {
   font: var(--font-card-bold-title);
   color: var(--color-white);
 }
 
-.video-card__cta {
+.card--video-reel .card__action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.card--video-reel .card__duration {
   font: var(--font-card-desc);
   color: var(--color-white);
 }
 
-.video-carousel {
+.card--video-reel .card__cta {
+  font: var(--font-card-desc);
+  color: var(--color-white);
+  border-top: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card Carousel (horizontal scroll container) */
+.card-carousel {
   display: flex;
   gap: 12px;
   overflow-x: auto;
@@ -803,20 +818,8 @@ img {
 }
 
 /* Video Duration Badge */
-.video-card__duration {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: rgba(0, 0, 0, 0.7);
-  color: var(--color-white);
-  font: 500 11px/1em 'Roboto', sans-serif;
-  padding: 4px 6px;
-  border-radius: 4px;
-  z-index: 1;
-}
-
-/* Video Carousel Nav */
-.video-card__nav {
+/* Card Carousel Nav */
+.card-carousel__nav {
   position: sticky;
   right: 0;
   display: flex;
@@ -834,7 +837,7 @@ img {
   z-index: 2;
 }
 
-.video-card__nav img {
+.card-carousel__nav img {
   width: 20px;
   height: 20px;
 }
