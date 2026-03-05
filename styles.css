@@ -769,11 +769,19 @@ img {
 
 .card--video-reel .card__brand-row {
   gap: 8px;
+  align-items: center;
+}
+
+.card--video-reel .card__brand-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 0.77px solid #E6E6E6;
 }
 
 .card--video-reel .card__brand {
-  font: var(--font-card-brand);
-  color: rgba(255, 255, 255, 0.8);
+  font: 400 10px/1em 'Roboto', sans-serif;
+  color: var(--color-white);
   text-transform: uppercase;
   letter-spacing: 0.2em;
 }
@@ -791,8 +799,16 @@ img {
 }
 
 .card--video-reel .card__duration {
-  font: var(--font-card-desc);
+  font: 400 14px/1.29em 'Roboto', sans-serif;
   color: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card--video-reel .card__play-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .card--video-reel .card__cta {
