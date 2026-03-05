@@ -835,9 +835,14 @@ img {
 
 /* Video Duration Badge */
 /* Card Carousel Nav */
+.card-carousel-wrap {
+  position: relative;
+}
+
 .card-carousel__nav {
-  position: sticky;
-  right: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -847,10 +852,21 @@ img {
   border: none;
   border-radius: 99px;
   cursor: pointer;
-  align-self: center;
   flex-shrink: 0;
-  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.06);
-  z-index: 2;
+  z-index: 3;
+  padding: 0;
+}
+
+.card-carousel__nav--next {
+  right: 0;
+}
+
+.card-carousel__nav--prev {
+  left: 0;
+}
+
+.card-carousel__nav--prev img {
+  transform: rotate(180deg);
 }
 
 .card-carousel__nav img {

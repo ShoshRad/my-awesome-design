@@ -351,6 +351,13 @@
         <!-- Section 8: Latest Videos -->
         <section class="feed-section">
           <div class="section-header">Latest videos</div>
+          <div class="card-carousel-wrap">
+            <button class="card-carousel__nav card-carousel__nav--prev" id="videoNavPrev" aria-label="Scroll to previous videos" style="display:none;">
+              <img src="assets/chevron-forward.svg" alt="Previous">
+            </button>
+            <button class="card-carousel__nav card-carousel__nav--next" id="videoNavNext" aria-label="Scroll to next videos">
+              <img src="assets/chevron-forward.svg" alt="Next">
+            </button>
           <div class="card-carousel" id="videoCarousel">
             <div class="card card--video-reel" style="background-image: url('assets/images/img-08-video1.png')">
               <video class="card__video-bg" muted loop playsinline></video>
@@ -456,9 +463,7 @@
                 </div>
               </div>
             </div>
-            <button class="card-carousel__nav" id="videoNavNext" aria-label="Scroll to next videos">
-              <img src="assets/chevron-forward.svg" alt="Next">
-            </button>
+          </div>
           </div>
         </section>
 
@@ -578,13 +583,26 @@
   </main>
 
   <script>
-    // Video carousel scroll on arrow click
+    // Video carousel navigation
     const carousel = document.getElementById('videoCarousel');
-    const navBtn = document.getElementById('videoNavNext');
-    if (navBtn && carousel) {
-      navBtn.addEventListener('click', () => {
+    const navNext = document.getElementById('videoNavNext');
+    const navPrev = document.getElementById('videoNavPrev');
+
+    function updateCarouselNav() {
+      if (!carousel) return;
+      navPrev.style.display = carousel.scrollLeft > 10 ? '' : 'none';
+      navNext.style.display = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10 ? 'none' : '';
+    }
+
+    if (navNext && carousel) {
+      navNext.addEventListener('click', () => {
         carousel.scrollBy({ left: 240, behavior: 'smooth' });
       });
+      navPrev.addEventListener('click', () => {
+        carousel.scrollBy({ left: -240, behavior: 'smooth' });
+      });
+      carousel.addEventListener('scroll', updateCarouselNav);
+      updateCarouselNav();
     }
 
     // Assign video sources to reel cards — play on hover only
