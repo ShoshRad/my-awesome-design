@@ -1112,8 +1112,8 @@ img {
 
 .spotlight__step {
   flex: 1;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.33);
+  height: 4px;
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -1133,6 +1133,30 @@ img {
 .spotlight__step--done .spotlight__step-fill {
   width: 100%;
   background: #FFFFFF;
+}
+
+.spotlight__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 3;
+}
+
+.spotlight__nav img {
+  width: 32px;
+  height: 32px;
+}
+
+.spotlight__nav--prev {
+  left: 8px;
+}
+
+.spotlight__nav--next {
+  right: 8px;
 }
 
 @keyframes spotlight-fill {
