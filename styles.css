@@ -824,12 +824,14 @@ img {
   display: flex;
   gap: 12px;
   overflow-x: auto;
+  scroll-behavior: smooth;
   padding: 4px 2px;
-  position: relative;
   max-width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.video-carousel::-webkit-scrollbar {
+.card-carousel::-webkit-scrollbar {
   display: none;
 }
 
